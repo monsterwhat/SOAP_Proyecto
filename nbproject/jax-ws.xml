@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="wb_Soap">
-      <implementation-class>com.alvaro.wb_Soap</implementation-class>
-    </service>
     <service name="wb_Cesantia">
       <implementation-class>soap.services.wb_Cesantia</implementation-class>
     </service>
