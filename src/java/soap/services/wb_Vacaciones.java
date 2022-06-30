@@ -1,6 +1,7 @@
 
 package soap.services;
 
+import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -9,17 +10,57 @@ import javax.jws.WebParam;
 public class wb_Vacaciones {
 
     /**
+     * Web service operation
+     */
+    
+    //Calcula los dias de vacaciones segun las semanas laboradas y calcula el saldo pendiente de vacaciones
+    @WebMethod(operationName = "Vacaciones")
+    public ArrayList Vacaciones(@WebParam(name = "semanasTrabajadas") int semanasTrabajadas, @WebParam(name = "saldoVacaciones") double saldoVacaciones) {
+        //TODO write your implementation code here:
+        
+         //calculo de vacaciones por días según las semanas laboradas
+        //son 14 días por cada 50 entonces según esta formula se sacan los días pendientes de vacaciones
+        int totalVacaciones = semanasTrabajadas*14/50;
+ 
+        //calculo de salario diario 
+        double salarioVacaciones = saldoVacaciones/30;
+        //calculo de saldo de vacaciones segun salario diario
+        double pagoVacaciones = salarioVacaciones*14;
+        
+        
+        ArrayList<Object> arrayRetorno = new ArrayList<>();
+        arrayRetorno.add(totalVacaciones);
+        arrayRetorno.add(pagoVacaciones);
+        
+        return arrayRetorno;
+    }
+
+    /**
+     * Web service operation
+     */
+    
+
+
+    /**
+     * Web service operation
+     */
+    
+
+    /**
+     * Web service operation
+     */
+  
+
+    /**
+     * Web service operation
+     */
+    
+
+
+    /**
      * This is a sample web service operation
      */
     
-    // Son 2 semanas de vacaciones por cada 50 trabajadas continuamente.
-    // 50 semanas son 300 dias
-    // Salario promedio/30 = Salario Diario
-    // 16 meses en adelante.
-    // if(antiguedad_empleado < 15){sout = no tiene vacaciones.}
-    // if(antiguedad_empleado >= 16){mate para calcular cuanto tiempo/pago}
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
+  
+    
 }
